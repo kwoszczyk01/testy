@@ -1,0 +1,64 @@
+
+Feature:Customer_Panel_User_Password_Management
+
+Background:
+GIVEN panel klienta jest otwarty na stronie logowania
+
+Scenario: Okno przypomnienia hasla
+GIVEN widze okno do logowania
+WHEN klikam 'Nie pamietasz hasla'
+THEN widze okno 'przypomnienia hasla'
+
+Scenario: Przypomnienie hasla
+GIVEN widze okno do logowania
+AND klikam 'Nie pamietasz hasla'
+AND widze okno 'Przypomnienia hasla'
+WHEN wpisuje 'email' w pole Adres e-mail
+AND klikam Wyślij
+THEN widze okno potwierdzajace wyslanie maila na podany adres
+
+Scenario Outline: Przypomnienie hasla - bledne
+GIVEN widze okno do logowania
+AND klikam 'Nie pamietasz hasla'
+AND widze okno 'Przypomnienia hasla'
+WHEN wpisuje <mail> w pole Adres e-mail
+AND klikam Wyślij
+THEN widze <komunikat>
+
+Examples:
+|mail			            |komunikat			               |
+|poprawny_nieistniejacy_mail|Nieudana próba przypomnienia hasła|
+|niepoprawny_mail	        |Nieprawidłowy email   	           |
+
+Scenario: Zmiana hasla - poprawna
+GIVEN widze okno do logowania
+AND wpisuje 'email' do pola login
+AND wpisuje 'haslo' do pola haslo
+AND widze strone glowna panelu
+AND kieruje kursor na rozwijane menu uzytkownika
+AND klikam 'Profil'
+AND widze widok 'Moj Profil'
+WHEN wpisuje 'aktualne_haslo' w pole 'Aktualne Haslo'
+AND wpisuje 'nowe_haslo' w pole 'Nowe Haslo'
+AND wpisuje 'nowe_haslo' w pole 'Powtórz Haslo'
+AND klikam 'Zmień'
+THEN widze informacje o sukcesie 'Zmiana hasła zakończona powodzeniem.'
+
+Scenario Outline: Zmiana hasla - niepooprawne
+GIVEN widze okno do logowania
+AND wpisuje 'email' do pola login
+AND wpisuje 'haslo' do pola haslo
+AND widze strone glowna panelu
+AND kieruje kursor na rozwijane menu uzytkownika
+AND klikam 'Profil'
+AND widze widok 'Moj Profil'
+WHEN wpisuje <aktualne_haslo> do pola 'Aktualne Hasło'
+AND wpisuje <nowe_haslo> do pola 'Nowe Hasło'
+AND wpisuje <powtorzone_haslo> do pola 'Powtórz Hasło'
+THEN widze <komunikat>
+
+Examples:
+|aktualne_haslo       |nowe_haslo        |powtorzone_haslo  |komunikat											                                              |
+|poprawne_akt_haslo   |niepoprawne_haslo |niepoprawne_haslo |Hasło powinno zawierać minimum 8 znaków, w tym wielką literę, małą literę, znak specjalny i cyfrę|
+|niepoprawne_akt_haslo|poprawne_haslo    |poprawne_haslo    |Aktualne hasło nieprawidłowe						      	                                      |
+|poprawne_akt_haslo   |poprawne_haslo    |nie_poprawne_haslo|Te hasła nie pasują do siebie. Spróbuj ponownie
