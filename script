@@ -15,17 +15,18 @@ And klikam Zapisz i Zamknij FCC
 Then skrypt zostal zapisany Fcc
 
 Feature Fcc_Skrypt_regon
-Background:
-Given
+Background:Fcc_kampania_rekord_skrypt
+Given otwarty rekord ze skryptem
 Scenerio: Praca ze skryptem pole REGON Fcc
-Given
+Given Widze rekord ze skkryptem
 When klikam w Wyswietl rekord
 And otwieram rekord FCC
-And widze skrypt w Fcc
-And wpisuje w tabeli REGON liczby 988518223
-And ustawiam kalstfikator
+And klikam zadzwon
+And klikam zakoncz
+And wpisuje w polu REGON liczby 988518223
 And klikam Zapisz i Zamknij
-Then skrypt został zapisany
+And otwieram rekord
+THE rekord ze skryptem został zapisany
 
 Feature FCC_ skrypt_nip
 Background:
@@ -98,3 +99,16 @@ And klika Zadzwon
 And agent wybiera klasyfikator
 And klikam Zapisz i Zamknij
 Then rekord został zapisany
+
+Feature: wypełnieie pola Regon w skrypcie
+Background: FCC_Customer_Campanin_Record_Script
+Given otwarta kamania z rekordem
+AND widze okno rekordu z skryptem
+AND klikam ZADZWON
+WHEN wypełniam pole REGON liczbami <988518223>
+AND klikam Rozlacz na rekordzie
+AND klikam Zapisz i Zamknij na rekordzie
+AND klikam w spis rekordow
+AND wybieram rekord
+AND otwieram rekordu
+THEN widze zapisany skrypt na rekordzie

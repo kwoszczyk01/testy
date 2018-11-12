@@ -13,7 +13,7 @@ Scenario: Przypomnienie hasla
 GIVEN widze okno do logowania
 AND klikam 'Nie pamietasz hasla'
 AND widze okno 'Przypomnienia hasla'
-WHEN wpisuje 'email' w pole Adres e-mail
+WHEN wpisuje 'email' w pole AdresNiestety nie ma namiarów na sprzedającego. e-mail
 AND klikam Wyślij
 THEN widze okno potwierdzajace wyslanie maila na podany adres
 
@@ -37,6 +37,7 @@ AND wpisuje 'haslo' do pola haslo
 AND widze strone glowna panelu
 AND kieruje kursor na rozwijane menu uzytkownika
 AND klikam 'Profil'
+
 AND widze widok 'Moj Profil'
 WHEN wpisuje 'aktualne_haslo' w pole 'Aktualne Haslo'
 AND wpisuje 'nowe_haslo' w pole 'Nowe Haslo'
