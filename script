@@ -1,114 +1,51 @@
-@fcc_agent_skrypt
-Scenario:prca ze skryptem_pole tekstowe FCC
-Given widze liste rekordow FCC
-When klikam wyswietl rekordy FCC
-And otwieram rekord FCC
-And widze skrypt w FCC
-And klikam Zadzwon FCC
-And wypelniam pole decyzyjne FCC
-And wpisuje TAK w pole decyzyjne Fcc
-And klikam Nastepna FCC
-And widze kolejna strone skryptu FCC
-And wybieram klasyfikator Fcc
-And klikam w Zamyka Sukces
-And klikam Zapisz i Zamknij FCC
-Then skrypt zostal zapisany Fcc
 
-Feature Fcc_Skrypt_regon
-Background:Fcc_kampania_rekord_skrypt
-Given otwarty rekord ze skryptem
-Scenerio: Praca ze skryptem pole REGON Fcc
-Given Widze rekord ze skkryptem
-When klikam w Wyswietl rekord
-And otwieram rekord FCC
-And klikam zadzwon
-And klikam zakoncz
-And wpisuje w polu REGON liczby 988518223
-And klikam Zapisz i Zamknij
-And otwieram rekord
-THE rekord ze skryptem został zapisany
+Scenerio: praca z skryptem pole REGON
+GIVEN: agent widzi pusta liste rekordow
+AND agent klika w przycisk ‘Dodaj” na oknie z lista z rekordami
+AND agent klika w przycisk ‘Pojedyńczy rekord’ na oknie z lista z rekordami
+AND otwiera sie okno dodawania nowego rekordu w kampanii
+AND agent wpisuje <1234> w pole ‘Numer’
+AND agent wpisuje <e-mail@.pp> w pole ‘Adresy e-mail’
+AND agent klika w przycisk ‘ZAPISZ’ w oknie dodawania rekordu
+AND agent widzi utworzony rekord o ID <XXX>
+AND agent klika w rekord o ID <XXX >
+AND otwiera się rekord z skryptem
+AND agent klika w przycisk ‘Zadzwoń” na oknie rekordu
+WHEN agent wpisuje liczby ‘ XXXXXXXXX’ w pole ‘Regon” w skrypcie
+AND agent klika w przycisk ‘Rozłącz’ na oknie rekordu
+AND agent widzi odblokowany przycisk ‘ Klasyfikator’
+AND agent wybiera klasyfikator ‘ zakonczone’
+AND agent klika w przycisk ‘ Zapisz i zamknij’ na oknie rekordu
+AND agent widzi komunikat o zapisanym skrypcie i zamknietym rekordzie
+AND agent klika w przycisk „odswiez” na liscie rekordow w kampanii XYZ
+AND aget widzi rekord o ID < XXX> na liscie rekordow w kampanii XYZ
+AND agent klika w rekord o ID < XXX> na liscie rekordow w kampanii XYZ
+AND agent widzi otwarty rekord w kampanii
+THEN agent widzi wartosc < XXXXXXXX> w polu REGON na oknie rekordu
 
-Feature FCC_ skrypt_nip
-Background:
-Given otwarty rekord z widocznym skryptem
-Scenario: Praca ze skryptem pole NIP FCC
-When klikam w Wyswietl rekord
-And otwieram rekord
-And widze skrypt w FCC
-And klikam Zadzwon FCC
-And wpisuje w tabeli NIP liczby 3394043486
-And klikam Rozlacz
-And ustawiam kalstfikator
-And klikam Zapisz i Zamknij
-Then skrypt został zapisany
+Scenario:prca ze skryptem pole NIP FCC
+GIVEN: agent widzi pusta liste rekordow
+AND agent klika w przycisk ‘Dodaj” na oknie z lista z rekordami
+AND agent klika w przycisk ‘Pojedyńczy rekord’ na oknie z lista z rekordami
+AND otwiera sie okno dodawania nowego rekordu w kampanii
+AND agent wpisuje <1234> w pole ‘Numer’
+AND agent wpisuje <e-mail@.pp> w pole ‘Adresy e-mail’
+AND agent klika w przycisk ‘ZAPISZ’ w oknie dodawania rekordu
+AND agent widzi utworzony rekord o ID <XXX>
+AND agent klika w rekord o ID <XXX >
+AND otwiera się rekord z skryptem
+AND agent klika w przycisk ‘Zadzwoń” na oknie rekordu
+WHEN agent wpisuje liczby ‘ XXXXXXXXX’ w pole ‘NIP” w skrypcie
+AND agent klika w przycisk ‘Rozłącz’ na oknie rekordu
+AND agent widzi odblokowany przycisk ‘ Klasyfikator’
+AND agent wybiera klasyfikator ‘ zakonczone’
+AND agent klika w przycisk ‘ Zapisz i zamknij’ na oknie rekordu
+AND agent widzi komunikat o zapisanym skrypcie i zamknietym rekordzie
+AND agent klika w przycisk „odswiez” na liscie rekordow w kampanii XYZ
+AND aget widzi rekord o ID < XXX> na liscie rekordow w kampanii XYZ
+AND agent klika w rekord o ID < XXX> na liscie rekordow w kampanii XYZ
+AND agent widzi otwarty rekord w kampanii
+THEN agent widzi wartosc < XXXXXXXX> w polu NIP na oknie rekordu
 
-Feature FCC_ skrypt_imie
-Background:
-Given otwarty rekord z widocznym skryptem
-Scenario: Praca ze skryptem pole IMIE FCC
-When klikam w Wyswietl rekord
-And otwieram rekord
-And widze skrypt w FCC
-And klikam Zadzwon
-And wpisuje w tabeli IMIE Jan
-And klikam Rozlacz
-And ustawiam kalstfikator
-And klikam Zapisz i Zamknij
-Then skrypt został zapisany
-
-Feature FCC_ skrypt_nazwisko
-Background:
-Given otwarty rekord z widocznym skryptem
-Scenario: Praca ze skryptem pole IMIE FCC
-When klikam w Wyswietl rekord
-And otwieram rekord
-And widze skrypt w FCC
-And klikam Zadzwon
-And wpisuje w tabeli NAZWISKO Kowalski
-And klikam Rozlacz
-And ustawiam kalstfikator
-And klikam Zapisz i Zamknij
-Then rekord został zapisany
-
-Feature FCC_ skrypt_checkbox
-Background:
-Given otwarty rekord z widocznym skryptem
-Scenario: Praca ze skryptem pole checkboc FCC
-When klikam w Wyswietl rekord
-And otwieram rekord
-And widze skrypt w FCC
-And klikam Zadzwon
-Then widze skrypt z checkboc
-When zaznaczam checkbox
-And ustawiam kalstfikator
-And klikam Zapisz i Zamknij
-Then rekord został zapisany
-
-eature FCC_ skrypt_link
-Background:
-Given otwarty rekord z widocznym skryptem
-Scenario: Praca ze skryptem pole link FCC
-When klikam w Wyswietl rekord
-And otwieram rekord
-And widze skrypt w FCC
-And klikam W LINK https://www.facebook.com/sharer.php?s=100
-Then otwiera sie nowa karta
-When agent widzi otwara strone z linaka
-And agent wraca do skrypty
-And klika Zadzwon
-And agent wybiera klasyfikator
-And klikam Zapisz i Zamknij
-Then rekord został zapisany
-
-Feature: wypełnieie pola Regon w skrypcie
-Background: FCC_Customer_Campanin_Record_Script
-Given otwarta kamania z rekordem
-AND widze okno rekordu z skryptem
-AND klikam ZADZWON
-WHEN wypełniam pole REGON liczbami <988518223>
-AND klikam Rozlacz na rekordzie
-AND klikam Zapisz i Zamknij na rekordzie
-AND klikam w spis rekordow
-AND wybieram rekord
-AND otwieram rekordu
-THEN widze zapisany skrypt na rekordzie
+Scenerio : prca ze skryptem pole
+AND 
